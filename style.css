@@ -1,0 +1,15 @@
+.cell {
+  border: 1px black solid;
+  /* Each cell should grow and shrink at the same rate */
+  flex: auto;
+}
+
+.container {
+  display: flex;
+}
+
+/* 
+Seems like we need to make use of flex-wrap first - the principle here is flex-wrap when theres 
+not enough space to house all elements in one line, will allow wrapping 
+- Then, we size each cell width such that there will always only allow X amount of divs within a row
+*/
