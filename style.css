@@ -1,15 +1,33 @@
-.cell {
-  border: 1px black solid;
-  /* Each cell should grow and shrink at the same rate */
-  flex: auto;
+/* Flexbox body to center the etch-a-sketch container */
+body {
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Container that doesn't shrink. Holds the grids */
 .container {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 750px;
+  height: 750px;
+}
+
+/* Each row that holds the cells */
+.row {
+  flex: auto;
+  /* border: 1px green solid; */
+
   display: flex;
 }
 
-/* 
-Seems like we need to make use of flex-wrap first - the principle here is flex-wrap when theres 
-not enough space to house all elements in one line, will allow wrapping 
-- Then, we size each cell width such that there will always only allow X amount of divs within a row
-*/
+/* Styling for a cell */
+.cell {
+  border: 1px black solid;
+  flex: auto;
+}
