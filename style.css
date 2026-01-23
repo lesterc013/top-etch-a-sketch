@@ -1,9 +1,10 @@
 /* Flexbox body to center the etch-a-sketch container */
 body {
   margin: 0;
+}
+
+.etch-a-sketch {
   display: flex;
-  width: 100vw;
-  height: 100vh;
   justify-content: center;
   align-items: center;
 }
