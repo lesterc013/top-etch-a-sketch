@@ -3,8 +3,8 @@ const numCols = 16;
 const totalCells = numRows * numCols;
 
 // To hold all the cells
-const containerClassName = ".container";
-const container = document.querySelector(containerClassName);
+const gridClassName = ".grid";
+const grid = document.querySelector(gridClassName);
 
 /*
 Main colouring logic is to attach event listeners to container.
@@ -32,8 +32,8 @@ const colourIfMouseBtnWasDownAndHoveredOver = (e) => {
   }
 };
 
-container.addEventListener("mousedown", colourIfMouseDownAndOverDiv);
-container.addEventListener("mouseover", colourIfMouseBtnWasDownAndHoveredOver);
+grid.addEventListener("mousedown", colourIfMouseDownAndOverDiv);
+grid.addEventListener("mouseover", colourIfMouseBtnWasDownAndHoveredOver);
 
 // Set cell ID, then increment cellId every j iteration by 1
 let cellId = 1;
@@ -56,5 +56,5 @@ for (let i = 0; i < numRows; i++) {
     row.appendChild(cell);
   }
 
-  container.appendChild(row);
+  grid.appendChild(row);
 }
