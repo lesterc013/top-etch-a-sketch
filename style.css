@@ -21,6 +21,7 @@
 
 .ui {
   flex: 0;
+  padding: 20px;
 }
 
 .etch-a-sketch {
