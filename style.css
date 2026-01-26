@@ -1,12 +1,27 @@
-/* Flexbox body to center the etch-a-sketch container */
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  flex: 0;
+}
+
+.ui {
+  flex: 0;
 }
 
 .etch-a-sketch {
-  display: flex;
+  flex: 1;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 /* Container that doesn't shrink. Holds the grids */
