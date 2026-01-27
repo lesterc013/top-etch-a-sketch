@@ -76,8 +76,16 @@ Make use of event bubbling to then work on that element to colour.
 // Helper to colour a target cell based on its cellId
 const colourTargetDiv = (cellId) => {
   const cellToColour = document.querySelector("#" + cellId);
+
+  // A RGB is 0-255
+  // Get 3 random numbers between 0 and 255 incl.
+  // Set this as the backgroundColor
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+
   // Change its background colour
-  cellToColour.style.backgroundColor = "black";
+  cellToColour.style.backgroundColor = `rgb(${r},${g},${b})`;
 };
 
 // This colours the first div selected and clicked down on
