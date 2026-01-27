@@ -22,6 +22,9 @@
 .ui {
   flex: 0;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .etch-a-sketch {
@@ -38,8 +41,8 @@
   flex-direction: column;
   flex-wrap: wrap;
 
-  min-width: 500px;
-  min-height: 500px;
+  min-width: 650px;
+  min-height: 650px;
 }
 
 /* Each row that holds the cells */
