@@ -37,13 +37,16 @@ const drawGrid = (cellsPerSide) => {
 };
 
 // Initial render: draw a grid of 16x16
-drawGrid(50);
+const defaultCellsPerSide = 50;
+drawGrid(defaultCellsPerSide);
 
 // On button click
 // Check if the input is a number between 1 and incl. 100
 // If so, populate the grid
 // else, send a message that number must be between 1 and 100.
 const submitNumCellsBtn = document.querySelector("#submit-num-cells");
+// On init, this is default cells per side. But in the submit num cells event listener, we update
+let selectedCellsPerSide = defaultCellsPerSide;
 submitNumCellsBtn.addEventListener("click", () => {
   const cellsInput = document.querySelector("#num-cells-input");
   const parsedInt = parseInt(cellsInput.value);
@@ -61,6 +64,8 @@ submitNumCellsBtn.addEventListener("click", () => {
 
   // Once tests are passed, reset the grid
   drawGrid(parsedInt);
+  // Update the selectedCellsPerSide so others like clear grid can ref it
+  selectedCellsPerSide = parsedInt;
 });
 
 const resetInputField = (inputFieldElement) => {
@@ -115,3 +120,11 @@ const colourIfMouseBtnWasDownAndHoveredOver = (e) => {
 
 grid.addEventListener("mousedown", colourIfMouseDownAndOverDiv);
 grid.addEventListener("mouseover", colourIfMouseBtnWasDownAndHoveredOver);
+
+/**
+ * Clear grid logic
+ */
+const clearGridBtn = document.querySelector("#clear-grid-btn");
+clearGridBtn.addEventListener("click", () => {
+  drawGrid(selectedCellsPerSide);
+});
