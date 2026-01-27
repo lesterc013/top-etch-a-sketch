@@ -73,19 +73,30 @@ Main colouring logic is to attach event listeners to container.
 Make use of event bubbling to then work on that element to colour.
 */
 
+// Event listener to check rainbow box to set global flag on whether to rainbow or not
+const checkboxRainbow = document.querySelector("#checkbox-rainbow");
+let isRainbow = checkboxRainbow.checked; // Default value.
+checkboxRainbow.addEventListener("change", () => {
+  isRainbow = checkboxRainbow.checked;
+});
+
 // Helper to colour a target cell based on its cellId
 const colourTargetDiv = (cellId) => {
   const cellToColour = document.querySelector("#" + cellId);
+  let cellColour = "black";
 
-  // A RGB is 0-255
-  // Get 3 random numbers between 0 and 255 incl.
-  // Set this as the backgroundColor
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
+  if (isRainbow) {
+    // A RGB is 0-255
+    // Get 3 random numbers between 0 and 255 incl.
+    // Set this as the backgroundColor
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    cellColour = `rgb(${r},${g},${b})`;
+  }
 
   // Change its background colour
-  cellToColour.style.backgroundColor = `rgb(${r},${g},${b})`;
+  cellToColour.style.backgroundColor = cellColour;
 };
 
 // This colours the first div selected and clicked down on
